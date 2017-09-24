@@ -1,0 +1,393 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		664348211EFEFE7300DFA2F4 /* LocationTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664348201EFEFE7300DFA2F4 /* LocationTracker.swift */; };
+		664348281EFF3BB900DFA2F4 /* wifi-000-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 664348221EFF3BB900DFA2F4 /* wifi-000-512x512.png */; };
+		664348291EFF3BB900DFA2F4 /* wifi-020-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 664348231EFF3BB900DFA2F4 /* wifi-020-512x512.png */; };
+		6643482A1EFF3BB900DFA2F4 /* wifi-040-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 664348241EFF3BB900DFA2F4 /* wifi-040-512x512.png */; };
+		6643482B1EFF3BB900DFA2F4 /* wifi-060-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 664348251EFF3BB900DFA2F4 /* wifi-060-512x512.png */; };
+		6643482C1EFF3BB900DFA2F4 /* wifi-080-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 664348261EFF3BB900DFA2F4 /* wifi-080-512x512.png */; };
+		6643482D1EFF3BB900DFA2F4 /* wifi-100-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 664348271EFF3BB900DFA2F4 /* wifi-100-512x512.png */; };
+		664348301EFF580000DFA2F4 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6643482F1EFF580000DFA2F4 /* Destination.swift */; };
+		664348341EFF61C500DFA2F4 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664348331EFF61C500DFA2F4 /* Environment.swift */; };
+		664AD9CE1EF6DEA3006045F4 /* Dijkstra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664AD9CD1EF6DEA3006045F4 /* Dijkstra.swift */; };
+		664AD9D11EF6E05D006045F4 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664AD9D01EF6E05D006045F4 /* CoreBluetooth.framework */; };
+		664AD9D31EF6EF58006045F4 /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664AD9D21EF6EF58006045F4 /* Beacon.swift */; };
+		66D69EF81EEFD65200C9116C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D69EF71EEFD65200C9116C /* AppDelegate.swift */; };
+		66D69EFA1EEFD65200C9116C /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D69EF91EEFD65200C9116C /* RootViewController.swift */; };
+		66D69EFD1EEFD65200C9116C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66D69EFB1EEFD65200C9116C /* Main.storyboard */; };
+		66D69EFF1EEFD65200C9116C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66D69EFE1EEFD65200C9116C /* Assets.xcassets */; };
+		66D69F021EEFD65200C9116C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66D69F001EEFD65200C9116C /* LaunchScreen.storyboard */; };
+		66D69F0A1EF0C2AF00C9116C /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D69F091EF0C2AF00C9116C /* RouteViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		664348201EFEFE7300DFA2F4 /* LocationTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTracker.swift; sourceTree = "<group>"; };
+		664348221EFF3BB900DFA2F4 /* wifi-000-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wifi-000-512x512.png"; path = "../../../../Google Drive/IFSP/TCC/icons/wifi-000-512x512.png"; sourceTree = "<group>"; };
+		664348231EFF3BB900DFA2F4 /* wifi-020-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wifi-020-512x512.png"; path = "../../../../Google Drive/IFSP/TCC/icons/wifi-020-512x512.png"; sourceTree = "<group>"; };
+		664348241EFF3BB900DFA2F4 /* wifi-040-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wifi-040-512x512.png"; path = "../../../../Google Drive/IFSP/TCC/icons/wifi-040-512x512.png"; sourceTree = "<group>"; };
+		664348251EFF3BB900DFA2F4 /* wifi-060-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wifi-060-512x512.png"; path = "../../../../Google Drive/IFSP/TCC/icons/wifi-060-512x512.png"; sourceTree = "<group>"; };
+		664348261EFF3BB900DFA2F4 /* wifi-080-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wifi-080-512x512.png"; path = "../../../../Google Drive/IFSP/TCC/icons/wifi-080-512x512.png"; sourceTree = "<group>"; };
+		664348271EFF3BB900DFA2F4 /* wifi-100-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wifi-100-512x512.png"; path = "../../../../Google Drive/IFSP/TCC/icons/wifi-100-512x512.png"; sourceTree = "<group>"; };
+		6643482F1EFF580000DFA2F4 /* Destination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
+		664348331EFF61C500DFA2F4 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		664AD9CD1EF6DEA3006045F4 /* Dijkstra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dijkstra.swift; sourceTree = "<group>"; };
+		664AD9D01EF6E05D006045F4 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		664AD9D21EF6EF58006045F4 /* Beacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
+		66D69EF41EEFD65100C9116C /* BluetoothTwo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluetoothTwo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		66D69EF71EEFD65200C9116C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		66D69EF91EEFD65200C9116C /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		66D69EFC1EEFD65200C9116C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		66D69EFE1EEFD65200C9116C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		66D69F011EEFD65200C9116C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		66D69F031EEFD65200C9116C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66D69F091EF0C2AF00C9116C /* RouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		66D69EF11EEFD65100C9116C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				664AD9D11EF6E05D006045F4 /* CoreBluetooth.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6643482E1EFF3BBE00DFA2F4 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				664348221EFF3BB900DFA2F4 /* wifi-000-512x512.png */,
+				664348231EFF3BB900DFA2F4 /* wifi-020-512x512.png */,
+				664348241EFF3BB900DFA2F4 /* wifi-040-512x512.png */,
+				664348251EFF3BB900DFA2F4 /* wifi-060-512x512.png */,
+				664348261EFF3BB900DFA2F4 /* wifi-080-512x512.png */,
+				664348271EFF3BB900DFA2F4 /* wifi-100-512x512.png */,
+			);
+			name = icons;
+			sourceTree = "<group>";
+		};
+		664AD9CF1EF6E05C006045F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				664AD9D01EF6E05D006045F4 /* CoreBluetooth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		66D69EEB1EEFD65100C9116C = {
+			isa = PBXGroup;
+			children = (
+				66D69EF61EEFD65100C9116C /* BluetoothTwo */,
+				66D69EF51EEFD65100C9116C /* Products */,
+				664AD9CF1EF6E05C006045F4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		66D69EF51EEFD65100C9116C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				66D69EF41EEFD65100C9116C /* BluetoothTwo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		66D69EF61EEFD65100C9116C /* BluetoothTwo */ = {
+			isa = PBXGroup;
+			children = (
+				6643482E1EFF3BBE00DFA2F4 /* icons */,
+				66D69EF71EEFD65200C9116C /* AppDelegate.swift */,
+				66D69EF91EEFD65200C9116C /* RootViewController.swift */,
+				66D69EFB1EEFD65200C9116C /* Main.storyboard */,
+				66D69EFE1EEFD65200C9116C /* Assets.xcassets */,
+				66D69F001EEFD65200C9116C /* LaunchScreen.storyboard */,
+				66D69F031EEFD65200C9116C /* Info.plist */,
+				66D69F091EF0C2AF00C9116C /* RouteViewController.swift */,
+				664AD9CD1EF6DEA3006045F4 /* Dijkstra.swift */,
+				664AD9D21EF6EF58006045F4 /* Beacon.swift */,
+				664348201EFEFE7300DFA2F4 /* LocationTracker.swift */,
+				6643482F1EFF580000DFA2F4 /* Destination.swift */,
+				664348331EFF61C500DFA2F4 /* Environment.swift */,
+			);
+			path = BluetoothTwo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		66D69EF31EEFD65100C9116C /* BluetoothTwo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66D69F061EEFD65200C9116C /* Build configuration list for PBXNativeTarget "BluetoothTwo" */;
+			buildPhases = (
+				66D69EF01EEFD65100C9116C /* Sources */,
+				66D69EF11EEFD65100C9116C /* Frameworks */,
+				66D69EF21EEFD65100C9116C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BluetoothTwo;
+			productName = BluetoothTwo;
+			productReference = 66D69EF41EEFD65100C9116C /* BluetoothTwo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		66D69EEC1EEFD65100C9116C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Daniel Marcoto";
+				TargetAttributes = {
+					66D69EF31EEFD65100C9116C = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = U5NFDK9YF6;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 66D69EEF1EEFD65100C9116C /* Build configuration list for PBXProject "BluetoothTwo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 66D69EEB1EEFD65100C9116C;
+			productRefGroup = 66D69EF51EEFD65100C9116C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				66D69EF31EEFD65100C9116C /* BluetoothTwo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		66D69EF21EEFD65100C9116C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6643482C1EFF3BB900DFA2F4 /* wifi-080-512x512.png in Resources */,
+				6643482A1EFF3BB900DFA2F4 /* wifi-040-512x512.png in Resources */,
+				664348281EFF3BB900DFA2F4 /* wifi-000-512x512.png in Resources */,
+				66D69F021EEFD65200C9116C /* LaunchScreen.storyboard in Resources */,
+				6643482D1EFF3BB900DFA2F4 /* wifi-100-512x512.png in Resources */,
+				66D69EFF1EEFD65200C9116C /* Assets.xcassets in Resources */,
+				664348291EFF3BB900DFA2F4 /* wifi-020-512x512.png in Resources */,
+				66D69EFD1EEFD65200C9116C /* Main.storyboard in Resources */,
+				6643482B1EFF3BB900DFA2F4 /* wifi-060-512x512.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		66D69EF01EEFD65100C9116C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66D69EFA1EEFD65200C9116C /* RootViewController.swift in Sources */,
+				664AD9CE1EF6DEA3006045F4 /* Dijkstra.swift in Sources */,
+				664348211EFEFE7300DFA2F4 /* LocationTracker.swift in Sources */,
+				664348341EFF61C500DFA2F4 /* Environment.swift in Sources */,
+				664AD9D31EF6EF58006045F4 /* Beacon.swift in Sources */,
+				66D69EF81EEFD65200C9116C /* AppDelegate.swift in Sources */,
+				664348301EFF580000DFA2F4 /* Destination.swift in Sources */,
+				66D69F0A1EF0C2AF00C9116C /* RouteViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		66D69EFB1EEFD65200C9116C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				66D69EFC1EEFD65200C9116C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		66D69F001EEFD65200C9116C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				66D69F011EEFD65200C9116C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		66D69F041EEFD65200C9116C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		66D69F051EEFD65200C9116C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		66D69F071EEFD65200C9116C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = U5NFDK9YF6;
+				INFOPLIST_FILE = BluetoothTwo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.marcoto.BluetoothTwo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		66D69F081EEFD65200C9116C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = U5NFDK9YF6;
+				INFOPLIST_FILE = BluetoothTwo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.marcoto.BluetoothTwo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		66D69EEF1EEFD65100C9116C /* Build configuration list for PBXProject "BluetoothTwo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66D69F041EEFD65200C9116C /* Debug */,
+				66D69F051EEFD65200C9116C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		66D69F061EEFD65200C9116C /* Build configuration list for PBXNativeTarget "BluetoothTwo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66D69F071EEFD65200C9116C /* Debug */,
+				66D69F081EEFD65200C9116C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 66D69EEC1EEFD65100C9116C /* Project object */;
+}
