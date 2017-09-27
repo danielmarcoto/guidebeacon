@@ -8,19 +8,16 @@
 
 import Foundation
 
-class Beacon : NSObject, Vertex {
+class Beacon : Node {
     
     let name : String
-    let id : String
-    var edges: [Edge]
     
     private var _rssi : NSNumber
     
     init(name: String) {
         self.name = name
-        self.id = name
-        self.edges = []
         _rssi = 0
+        super.init()
     }
     
     var rssi : NSNumber {
@@ -51,14 +48,7 @@ class Beacon : NSObject, Vertex {
                 return BeaconDistance.unknown
             }
         }
-    }
-    
-    override func isEqual(_ object: Any?) -> Bool {
-        if let objBeacon = object as? Beacon {
-            return objBeacon.name == name
-        }
-        return false
-    }
+    }    
 }
 
 enum BeaconDistance {
@@ -84,14 +74,3 @@ enum BeaconDistance {
     }
 }
 
-struct Map: Graph { }
-
-struct Route: Edge {
-    var weight: Int
-    var destination: Vertex
-    
-    init(distance: Int, destination: Beacon) {
-        self.weight = distance
-        self.destination = destination
-    }
-}

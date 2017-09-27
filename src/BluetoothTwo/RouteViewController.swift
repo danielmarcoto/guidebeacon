@@ -55,14 +55,23 @@ class RouteViewControler : UIViewController, UITableViewDataSource, UITableViewD
             if let destination = destinations?[indexPath.item] {
                 let origin = self.rootViewController?.beacons.closest
                 
+                print("Destination: \(destination.beacon.name) \(destination.beacon.connections.count)")
+                print("origin: \(origin!.name) \(origin!.connections.count)")
+                
+                print("Dest isVisited: \(destination.beacon.visited)")
+                print("Orig isVisited: \(origin!.visited)")
+                
                 if let path = self.rootViewController?.environment
-                    .path(from: origin!, to: destination.beacon) {
+                    .shortestPath(source: origin!, destination: destination.beacon) {
                     // Sum of the estimated distance
+                    /*
                     let distance = path.reduce(0, { (result, item) -> Int in
                         return result + item.distance
                     })
-                    
-                    tableViewCell.detailTextLabel?.text = "Distância estimada de \(distance)m"
+                    */
+                    tableViewCell.detailTextLabel?.text = "Distância estimada de \(path.cumulativeWeight)m"
+                } else {
+                    tableViewCell.detailTextLabel?.text = "Não foi possível calcular"
                 }
                 tableViewCell.textLabel?.text = destination.title
             }

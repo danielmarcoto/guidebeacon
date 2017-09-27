@@ -14,58 +14,64 @@ struct Environment {
     
     let destinations : [Destination]?
     
-    private let environment : Map
-    
-    private let map : Map
-    
     init() {
-        environment = Map()
         
         let beacon054 = Beacon(name: "BMBEACON_00054")
-        var beacon162 = Beacon(name: "BMBEACON_00162")
+        let beacon102 = Beacon(name: "BMBEACON_00102")
+        let beacon162 = Beacon(name: "BMBEACON_00162")
         let beacon342 = Beacon(name: "BMBEACON_00342")
         let beacon373 = Beacon(name: "BMBEACON_00373")
         
-        map = Map()
+        // Defining the environment
+        beacon054.connections.append(Connection(to: beacon162, weight: 9))
+        beacon162.connections.append(Connection(to: beacon342, weight: 5))
+        beacon162.connections.append(Connection(to: beacon373, weight: 8))
+        beacon342.connections.append(Connection(to: beacon102, weight: 9))
         
-        map.add(edge: Route(distance: 8, destination: beacon054), from: &beacon162)
-        map.add(edge: Route(distance: 5, destination: beacon342), from: &beacon162)
-        map.add(edge: Route(distance: 5, destination: beacon373), from: &beacon162)
-        
+        beacon162.connections.append(Connection(to: beacon054, weight: 9))
+        beacon342.connections.append(Connection(to: beacon162, weight: 5))
+        beacon373.connections.append(Connection(to: beacon162, weight: 8))
+        beacon102.connections.append(Connection(to: beacon342, weight: 9))
+ 
         // Beacons initialized
-        beacons = [beacon054, beacon162, beacon342, beacon373]
+        beacons = [beacon054, beacon102, beacon162, beacon342, beacon373]
         
         // Destinations
         destinations = [
             Destination(title: "A - beacon054", beacon: beacon054),
             Destination(title: "B - beacon162", beacon: beacon162),
             Destination(title: "C - beacon342", beacon: beacon342),
-            Destination(title: "D - beacon373", beacon: beacon373)
+            Destination(title: "D - beacon373", beacon: beacon373),
+            Destination(title: "E - beacon102", beacon: beacon102)
         ]
     }
     
-    func history(from origin: Vertex, path: Path) -> [Path] {
-        var history = [Path]()
-        history.append(path)
-        
-        var previousPath = path.previousPath
-        while previousPath != nil {
-            history.append(previousPath!)
-            previousPath = previousPath!.previousPath
-        }
-        
-        history.append(Path(distance: 0, destination: origin, previousPath: nil))
-        
-        return history.reversed()
+    func history(from path: Path) -> [Beacon]? {
+        return path.array.reversed().flatMap({ $0 as? Beacon}).map({$0})
     }
     
-    func path(from origin: Beacon, to destination : Beacon) -> [Path] {
-        
-        
-        let path = map.shortestPathDijkstra(from: origin, to: destination)
-        if(path == nil) {
-            return []
+    func shortestPath(source: Node, destination: Node) -> Path? {
+        var frontier: [Path] = [] {
+            didSet { frontier.sort { return $0.cumulativeWeight < $1.cumulativeWeight } } // the frontier has to be always ordered
         }
-        return history(from: origin, path: path!) 
+        
+        frontier.append(Path(to: source)) // the frontier is made by a path that starts nowhere and ends in the source
+        
+        while !frontier.isEmpty {
+            let cheapestPathInFrontier = frontier.removeFirst() // getting the cheapest path available
+            guard !cheapestPathInFrontier.node.visited else { continue } // making sure we haven't visited the node already
+            print("cumulativeWeight:\(cheapestPathInFrontier.cumulativeWeight)")
+            if cheapestPathInFrontier.node === destination {
+                return cheapestPathInFrontier // found the cheapest path 😎
+            }
+            
+            cheapestPathInFrontier.node.visited = true
+            
+            for connection in cheapestPathInFrontier.node.connections where !connection.to.visited { // adding new paths to our frontier
+                frontier.append(Path(to: connection.to, via: connection, previousPath: cheapestPathInFrontier))
+            }
+        } // end while
+        print("we didn't find a path 😣")
+        return nil // we didn't find a path 😣
     }
 }

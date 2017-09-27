@@ -1,145 +1,53 @@
-/**
- 
- Dijkstra's algorithm in Swift 3
- 
- The idea is to create a more protocol oriented implementation.
- 
- Note: It could use some optimizations, if you wish to use in production.
- 
- From: https://gist.githubusercontent.com/marciok/6585da91a6967ad92f5b6ee2183c9552/raw/dc35047ff3da20cab2f887a03042c0780bac6828/dijkstra.swift
- 
- */
-import Foundation
+// https://medium.com/swiftly-swift/dijkstras-algorithm-in-swift-15dce3ed0e22
+// https://gist.githubusercontent.com/zntfdr/9b31bb2c38be1fea4d63ee4bc4f7bde3/raw/d441619a46f8af997a4df3ec10ee4804c042aeb1/DijkstraComplete.swift
 
-protocol Vertex {
-    var id: String { get }
-    var edges: [Edge] { get set}
+class Node {
+    var visited = false
+    var connections: [Connection] = []
 }
 
-protocol Edge {
-    var weight: Int { get set}
-    var destination: Vertex { get set}
-}
-
-final class Path {
-    let distance: Int
-    let destination: Vertex
-    var previousPath: Path?
+class Connection {
+    public let to: Node
+    public let weight: Int
     
-    init(distance: Int, destination: Vertex, previousPath: Path?) {
-        self.distance = distance
-        self.destination = destination
-        self.previousPath = previousPath
+    public init(to node: Node, weight: Int) {
+        assert(weight >= 0, "weight has to be equal or greater than zero")
+        self.to = node
+        self.weight = weight
     }
 }
 
-protocol Graph {
-    func add<V: Vertex, E: Edge>(edge: E, from source: inout V)
+class Path {
+    public let cumulativeWeight: Int
+    public let node: Node
+    public let previousPath: Path?
     
-    // Returns the shortest Path from an origin to a destination
-    func shortestPathDijkstra(from origin: Vertex, to destination: Vertex) -> Path?
-    
-    // Returns the shortest Paths from an orgin to all reachable Vertexes
-    func shortestPathDijkstra(from origin: Vertex) -> [Path]
-}
-
-extension Graph {
-    func add<V: Vertex, E: Edge>(edge: E, from source: inout V) {
-        source.edges.append(edge)
-    }
-    
-    func shortestPathDijkstra(from origin: Vertex, to destination: Vertex) -> Path? {
-        return self.shortestPathDijkstra(from: origin).filter { $0.destination.id == destination.id }.first
-    }
-    
-    func shortestPathDijkstra(from origin: Vertex) -> [Path] {
-        var frontier = [Path]()
-        var finalPath = [Path]()
-        var bestPath: Path? = nil
-        
-        // 1. Create a Path for every `edge` on the `origin`
-        for edge in origin.edges {
-            let path = Path(
-                distance: edge.weight,
-                destination: edge.destination,
-                previousPath: nil
-            )
-            // 2. Add the path to the `frontier`
-            frontier.append(path)
+    init(to node: Node, via connection: Connection? = nil, previousPath path: Path? = nil) {
+        if
+            let previousPath = path,
+            let viaConnection = connection {
+            self.cumulativeWeight = viaConnection.weight + previousPath.cumulativeWeight
+        } else {
+            self.cumulativeWeight = 0
         }
         
-        // 3. Look into every Vertexes while there is a `frontier`
-        while frontier.count > 0 {
-            var bestPathIndex = 0
+        self.node = node
+        self.previousPath = path
+    }
+}
+
+extension Path {
+    var array: [Node] {
+        var array: [Node] = [self.node]
+        
+        var iterativePath = self
+        while let path = iterativePath.previousPath {
+            array.append(path.node)
             
-            for index in 0..<frontier.count {
-                bestPath = nil
-                let path = frontier[index]
-                
-                // 4. Find & store the `bestPath`
-                if bestPath == nil || path.distance < bestPath!.distance  {
-                    bestPath = path
-                    bestPathIndex = index
-                }
-            }
-            
-            // 5. Add to the frontier each `destination.edges` inside `bestPath`
-            for edge in bestPath!.destination.edges {
-                let path = Path(
-                    distance: edge.weight + bestPath!.distance,
-                    destination: edge.destination,
-                    previousPath: bestPath
-                )
-                frontier.append(path)
-            }
-            
-            // 6. Add to the `finalPath` the `bestPath`,
-            // if it's lower than Path to the same destination on `finalPath`
-            let pathsToLocation = finalPath.filter { $0.destination.id == bestPath?.destination.id }
-            if pathsToLocation.count == 0 {
-                finalPath.append(bestPath!)
-            } else {
-                for path in pathsToLocation {
-                    
-                    //if bestPath?.distance < path.distance {
-                    if (bestPath?.distance)! < path.distance {
-                        finalPath.append(bestPath!)
-                    }
-                }
-            }
-            
-            // 8. Remove `bestPath` from `frontier`
-            frontier.remove(at: bestPathIndex)
+            iterativePath = path
         }
         
-        return finalPath
-    }
-}
-/*
-
-struct Neighborhood: Graph { }
-
-final class PointOfInterest: Vertex {
-    let name: String
-    
-    var id: String
-    var edges: [Edge]
-    
-    init(name: String) {
-        self.name = name
-        self.id = name
-        self.edges = []
+        return array
     }
 }
 
-struct Route: Edge {
-    var weight: Int
-    var destination: Vertex
-    
-    init(distance: Int, destination: PointOfInterest) {
-        self.weight = distance
-        self.destination = destination
-    }
-}
-
-*/

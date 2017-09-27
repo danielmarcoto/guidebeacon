@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		661BDF971F7B4F2500FACAF4 /* wifi-020-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 661BDF911F7B4F2500FACAF4 /* wifi-020-512x512.png */; };
+		661BDF981F7B4F2500FACAF4 /* wifi-060-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 661BDF921F7B4F2500FACAF4 /* wifi-060-512x512.png */; };
+		661BDF991F7B4F2500FACAF4 /* wifi-080-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 661BDF931F7B4F2500FACAF4 /* wifi-080-512x512.png */; };
+		661BDF9A1F7B4F2500FACAF4 /* wifi-100-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 661BDF941F7B4F2500FACAF4 /* wifi-100-512x512.png */; };
+		661BDF9B1F7B4F2500FACAF4 /* wifi-000-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 661BDF951F7B4F2500FACAF4 /* wifi-000-512x512.png */; };
+		661BDF9C1F7B4F2500FACAF4 /* wifi-040-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 661BDF961F7B4F2500FACAF4 /* wifi-040-512x512.png */; };
 		664348211EFEFE7300DFA2F4 /* LocationTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664348201EFEFE7300DFA2F4 /* LocationTracker.swift */; };
-		664348281EFF3BB900DFA2F4 /* wifi-000-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 664348221EFF3BB900DFA2F4 /* wifi-000-512x512.png */; };
-		664348291EFF3BB900DFA2F4 /* wifi-020-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 664348231EFF3BB900DFA2F4 /* wifi-020-512x512.png */; };
-		6643482A1EFF3BB900DFA2F4 /* wifi-040-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 664348241EFF3BB900DFA2F4 /* wifi-040-512x512.png */; };
-		6643482B1EFF3BB900DFA2F4 /* wifi-060-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 664348251EFF3BB900DFA2F4 /* wifi-060-512x512.png */; };
-		6643482C1EFF3BB900DFA2F4 /* wifi-080-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 664348261EFF3BB900DFA2F4 /* wifi-080-512x512.png */; };
-		6643482D1EFF3BB900DFA2F4 /* wifi-100-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 664348271EFF3BB900DFA2F4 /* wifi-100-512x512.png */; };
 		664348301EFF580000DFA2F4 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6643482F1EFF580000DFA2F4 /* Destination.swift */; };
 		664348341EFF61C500DFA2F4 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664348331EFF61C500DFA2F4 /* Environment.swift */; };
 		664AD9CE1EF6DEA3006045F4 /* Dijkstra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664AD9CD1EF6DEA3006045F4 /* Dijkstra.swift */; };
@@ -28,13 +28,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		661BDF911F7B4F2500FACAF4 /* wifi-020-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wifi-020-512x512.png"; sourceTree = "<group>"; };
+		661BDF921F7B4F2500FACAF4 /* wifi-060-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wifi-060-512x512.png"; sourceTree = "<group>"; };
+		661BDF931F7B4F2500FACAF4 /* wifi-080-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wifi-080-512x512.png"; sourceTree = "<group>"; };
+		661BDF941F7B4F2500FACAF4 /* wifi-100-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wifi-100-512x512.png"; sourceTree = "<group>"; };
+		661BDF951F7B4F2500FACAF4 /* wifi-000-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wifi-000-512x512.png"; sourceTree = "<group>"; };
+		661BDF961F7B4F2500FACAF4 /* wifi-040-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wifi-040-512x512.png"; sourceTree = "<group>"; };
 		664348201EFEFE7300DFA2F4 /* LocationTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTracker.swift; sourceTree = "<group>"; };
-		664348221EFF3BB900DFA2F4 /* wifi-000-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wifi-000-512x512.png"; path = "../../../../Google Drive/IFSP/TCC/icons/wifi-000-512x512.png"; sourceTree = "<group>"; };
-		664348231EFF3BB900DFA2F4 /* wifi-020-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wifi-020-512x512.png"; path = "../../../../Google Drive/IFSP/TCC/icons/wifi-020-512x512.png"; sourceTree = "<group>"; };
-		664348241EFF3BB900DFA2F4 /* wifi-040-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wifi-040-512x512.png"; path = "../../../../Google Drive/IFSP/TCC/icons/wifi-040-512x512.png"; sourceTree = "<group>"; };
-		664348251EFF3BB900DFA2F4 /* wifi-060-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wifi-060-512x512.png"; path = "../../../../Google Drive/IFSP/TCC/icons/wifi-060-512x512.png"; sourceTree = "<group>"; };
-		664348261EFF3BB900DFA2F4 /* wifi-080-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wifi-080-512x512.png"; path = "../../../../Google Drive/IFSP/TCC/icons/wifi-080-512x512.png"; sourceTree = "<group>"; };
-		664348271EFF3BB900DFA2F4 /* wifi-100-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wifi-100-512x512.png"; path = "../../../../Google Drive/IFSP/TCC/icons/wifi-100-512x512.png"; sourceTree = "<group>"; };
 		6643482F1EFF580000DFA2F4 /* Destination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		664348331EFF61C500DFA2F4 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		664AD9CD1EF6DEA3006045F4 /* Dijkstra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dijkstra.swift; sourceTree = "<group>"; };
@@ -65,12 +65,12 @@
 		6643482E1EFF3BBE00DFA2F4 /* icons */ = {
 			isa = PBXGroup;
 			children = (
-				664348221EFF3BB900DFA2F4 /* wifi-000-512x512.png */,
-				664348231EFF3BB900DFA2F4 /* wifi-020-512x512.png */,
-				664348241EFF3BB900DFA2F4 /* wifi-040-512x512.png */,
-				664348251EFF3BB900DFA2F4 /* wifi-060-512x512.png */,
-				664348261EFF3BB900DFA2F4 /* wifi-080-512x512.png */,
-				664348271EFF3BB900DFA2F4 /* wifi-100-512x512.png */,
+				661BDF951F7B4F2500FACAF4 /* wifi-000-512x512.png */,
+				661BDF911F7B4F2500FACAF4 /* wifi-020-512x512.png */,
+				661BDF961F7B4F2500FACAF4 /* wifi-040-512x512.png */,
+				661BDF921F7B4F2500FACAF4 /* wifi-060-512x512.png */,
+				661BDF931F7B4F2500FACAF4 /* wifi-080-512x512.png */,
+				661BDF941F7B4F2500FACAF4 /* wifi-100-512x512.png */,
 			);
 			name = icons;
 			sourceTree = "<group>";
@@ -181,15 +181,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6643482C1EFF3BB900DFA2F4 /* wifi-080-512x512.png in Resources */,
-				6643482A1EFF3BB900DFA2F4 /* wifi-040-512x512.png in Resources */,
-				664348281EFF3BB900DFA2F4 /* wifi-000-512x512.png in Resources */,
+				661BDF9C1F7B4F2500FACAF4 /* wifi-040-512x512.png in Resources */,
+				661BDF9B1F7B4F2500FACAF4 /* wifi-000-512x512.png in Resources */,
+				661BDF9A1F7B4F2500FACAF4 /* wifi-100-512x512.png in Resources */,
 				66D69F021EEFD65200C9116C /* LaunchScreen.storyboard in Resources */,
-				6643482D1EFF3BB900DFA2F4 /* wifi-100-512x512.png in Resources */,
 				66D69EFF1EEFD65200C9116C /* Assets.xcassets in Resources */,
-				664348291EFF3BB900DFA2F4 /* wifi-020-512x512.png in Resources */,
+				661BDF991F7B4F2500FACAF4 /* wifi-080-512x512.png in Resources */,
+				661BDF981F7B4F2500FACAF4 /* wifi-060-512x512.png in Resources */,
+				661BDF971F7B4F2500FACAF4 /* wifi-020-512x512.png in Resources */,
 				66D69EFD1EEFD65200C9116C /* Main.storyboard in Resources */,
-				6643482B1EFF3BB900DFA2F4 /* wifi-060-512x512.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
