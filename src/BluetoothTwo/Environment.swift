@@ -60,8 +60,12 @@ struct Environment {
         while !frontier.isEmpty {
             let cheapestPathInFrontier = frontier.removeFirst() // getting the cheapest path available
             guard !cheapestPathInFrontier.node.visited else { continue } // making sure we haven't visited the node already
-            print("cumulativeWeight:\(cheapestPathInFrontier.cumulativeWeight)")
-            if cheapestPathInFrontier.node === destination {
+            
+            //if cheapestPathInFrontier.node === destination {
+            let current = cheapestPathInFrontier.node as! Beacon
+            let beaconDest = destination as! Beacon
+            
+            if current.name == beaconDest.name {
                 return cheapestPathInFrontier // found the cheapest path 😎
             }
             

@@ -48,7 +48,15 @@ class Beacon : Node {
                 return BeaconDistance.unknown
             }
         }
-    }    
+    }
+    /*
+    override func isEqual(object: AnyObject?) -> Bool {
+        if let object = object as? Beacon {
+            return name == object.name
+        } else {
+            return false
+        }
+    }*/
 }
 
 enum BeaconDistance {

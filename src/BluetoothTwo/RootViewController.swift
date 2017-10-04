@@ -78,7 +78,7 @@ class RootViewController: UITableViewController, CBCentralManagerDelegate, Locat
                     withServices: nil,
                     options: [CBCentralManagerScanOptionAllowDuplicatesKey : NSNumber(value: true)]);
             }
-            print("Scanning: \(bluetoothManager.isScanning)")
+            //print("Scanning: \(bluetoothManager.isScanning)")
         }
     }
     

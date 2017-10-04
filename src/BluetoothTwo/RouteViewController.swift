@@ -53,27 +53,16 @@ class RouteViewControler : UIViewController, UITableViewDataSource, UITableViewD
         // The list of destinations
         if (indexPath.section == 1) {            
             if let destination = destinations?[indexPath.item] {
-                let origin = self.rootViewController?.beacons.closest
+                //let origin = self.rootViewController?.beacons.closest
                 
-                print("Destination: \(destination.beacon.name) \(destination.beacon.connections.count)")
-                print("origin: \(origin!.name) \(origin!.connections.count)")
-                
-                print("Dest isVisited: \(destination.beacon.visited)")
-                print("Orig isVisited: \(origin!.visited)")
-                
+                /*
                 if let path = self.rootViewController?.environment
-                    .shortestPath(source: origin!, destination: destination.beacon) {
-                    // Sum of the estimated distance
-                    /*
-                    let distance = path.reduce(0, { (result, item) -> Int in
-                        return result + item.distance
-                    })
-                    */
+                    .shortestPath(source: beaconOrig, destination: beaconDest) {
+                    
                     tableViewCell.detailTextLabel?.text = "Distância estimada de \(path.cumulativeWeight)m"
-                } else {
-                    tableViewCell.detailTextLabel?.text = "Não foi possível calcular"
-                }
+                } */
                 tableViewCell.textLabel?.text = destination.title
+                tableViewCell.detailTextLabel?.text = ""
             }
             return tableViewCell
         } else {
@@ -113,7 +102,34 @@ class RouteViewControler : UIViewController, UITableViewDataSource, UITableViewD
         }
         
         if let destination = destinations?[indexPath.item] {
+            // Gets the origin and the destination
             self.rootViewController?.beaconDest = destination
+            let origin = self.rootViewController?.beacons.closest
+            
+            //destination.beacon.visited = false
+            //origin?.visited = false
+            print("SOURCE: \(origin!.name)")
+            print("DESTINATION: \(destination.beacon.name)")
+            
+            // Restart visited property
+            let environment = Environment()
+            
+            let source = environment.beacons!.first(where: { (beacon) -> Bool in
+                origin!.name == beacon.name
+            })
+            
+            let dest = environment.beacons!.first(where: { (beacon) -> Bool in
+                destination.beacon.name == beacon.name
+            })
+            
+            if let path = environment.shortestPath(source: source!, destination: dest!) {
+                print("Rota:")
+                for beacon in (environment.history(from: path))! {
+                    print("\(beacon.name)")
+                }
+                print("distância: \(path.cumulativeWeight)")
+                
+            }
             
             dismiss(animated: true, completion: nil)
         }

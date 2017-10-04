@@ -1,7 +1,7 @@
 // https://medium.com/swiftly-swift/dijkstras-algorithm-in-swift-15dce3ed0e22
 // https://gist.githubusercontent.com/zntfdr/9b31bb2c38be1fea4d63ee4bc4f7bde3/raw/d441619a46f8af997a4df3ec10ee4804c042aeb1/DijkstraComplete.swift
 
-class Node {
+class Node  {
     var visited = false
     var connections: [Connection] = []
 }
