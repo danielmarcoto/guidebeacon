@@ -8,16 +8,25 @@
 
 import CoreBluetooth
 import UIKit
+import AVFoundation
 
 class RootViewController: UITableViewController, CBCentralManagerDelegate, LocationTrackerEvents {
     
+    let synth = AVSpeechSynthesizer()
+    
     var manager : CBCentralManager?
     
-    var beaconDest : Destination?
+    var beaconDest : Destination? {
+        didSet {
+            if (beaconDest != nil) {
+                self.locationTracker.startRouterTo(beacon: (beaconDest?.beacon)!)
+            }
+        }
+    }
     
     var environment = Environment()
     
-    var beacons : LocationTracker = LocationTracker()
+    var locationTracker : LocationTracker = LocationTracker()
     
     var isBluetoothAvailable : Bool = false
     
@@ -31,11 +40,13 @@ class RootViewController: UITableViewController, CBCentralManagerDelegate, Locat
             title: "Questão",
             message: "Deseja interromper a rota atual?",
             preferredStyle: UIAlertControllerStyle.alert)
+        
         // Confirmation of Canceling
         let confirm = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (uiAlert) -> Void in
             self.navigationItem.leftBarButtonItem = nil
             self.beaconDest = nil
             self.tableView.reloadData()
+            self.locationTracker.stopRouter()
         })
         alert.addAction(confirm)
         
@@ -55,7 +66,7 @@ class RootViewController: UITableViewController, CBCentralManagerDelegate, Locat
             self.navigationItem.leftBarButtonItem = self.cancelButton
         }
         
-        self.beacons.delegate = self
+        self.locationTracker.delegate = self
     }
     
     override func viewDidLoad() {
@@ -101,6 +112,48 @@ class RootViewController: UITableViewController, CBCentralManagerDelegate, Locat
         }
     }
     
+    // LocationTrackerEvents
+    func didGoWrongDirection() {
+        print("didGoWrongDirection")
+        
+        let utterance = AVSpeechUtterance.init(string: "Você está na direção errada")
+        
+        self.synth.speak(utterance)
+    }
+    
+    // LocationTrackerEvents
+    func didPassedOnCheckpoint() {
+        print("didPassedOnCheckpoint")
+        
+        let utterance = AVSpeechUtterance.init(string: "Você está no caminho")
+        
+        self.synth.speak(utterance)
+    }
+    
+    // LocationTrackerEvents
+    func didGotToDestination() {
+        print("didGotToDestination")
+        
+        let utterance = AVSpeechUtterance.init(string: "Chegou ao destino")
+        
+        self.synth.speak(utterance)
+        
+        self.navigationItem.leftBarButtonItem = nil
+        self.beaconDest = nil
+        self.tableView.reloadData()
+        
+        let alert = UIAlertController(
+            title: "Sucesso",
+            message: "Você chegou ao seu destino",
+            preferredStyle: UIAlertControllerStyle.alert)
+        
+        let action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil)
+        
+        alert.addAction(action)
+        
+        present(alert, animated: true)
+    }
+    
     // CBCentralManagerDelegate
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         // Initial state of availability
@@ -117,7 +170,7 @@ class RootViewController: UITableViewController, CBCentralManagerDelegate, Locat
         let beacon = Beacon(name: peripheral.name ?? "Unmamed")
         beacon.rssi = RSSI
         
-        beacons.update(by: beacon)
+        locationTracker.update(by: beacon)
         
         tableView.reloadData()
     }
@@ -125,7 +178,7 @@ class RootViewController: UITableViewController, CBCentralManagerDelegate, Locat
     // UITableViewController
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let beacon = beacons.getBeaconsSortedByDistance()[indexPath.item]
+        let beacon = locationTracker.getBeaconsSortedByDistance()[indexPath.item]
         
         let identifier = beacon.rssi != 0 ? "tableViewItem" : "tableViewUnupdated"
         
@@ -141,7 +194,7 @@ class RootViewController: UITableViewController, CBCentralManagerDelegate, Locat
     
     // UITableViewController
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return beacons.count
+        return locationTracker.count
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

@@ -49,6 +49,21 @@ class Beacon : Node {
             }
         }
     }
+    
+    var distanceNumber : Int {
+        get {
+            var dict = [BeaconDistance:Int]()
+            
+            dict[BeaconDistance.unknown] = 0
+            dict[BeaconDistance.longDistante] = 1
+            dict[BeaconDistance.distant] = 2
+            dict[BeaconDistance.near] = 3
+            dict[BeaconDistance.close] = 4
+            
+            return dict[self.beaconDistance]!
+        }
+    }
+    
     /*
     override func isEqual(object: AnyObject?) -> Bool {
         if let object = object as? Beacon {

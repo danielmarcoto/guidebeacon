@@ -66,7 +66,7 @@ class RouteViewControler : UIViewController, UITableViewDataSource, UITableViewD
             }
             return tableViewCell
         } else {
-            if let beacon = rootViewController?.beacons.closest {
+            if let beacon = rootViewController?.locationTracker.closest {
                 tableViewCell.textLabel?.text = beacon.name
                 tableViewCell.detailTextLabel?.text = "RSSI: \(beacon.rssi.intValue)"
                 tableViewCell.imageView?.image =
@@ -102,34 +102,8 @@ class RouteViewControler : UIViewController, UITableViewDataSource, UITableViewD
         }
         
         if let destination = destinations?[indexPath.item] {
-            // Gets the origin and the destination
+            
             self.rootViewController?.beaconDest = destination
-            let origin = self.rootViewController?.beacons.closest
-            
-            //destination.beacon.visited = false
-            //origin?.visited = false
-            print("SOURCE: \(origin!.name)")
-            print("DESTINATION: \(destination.beacon.name)")
-            
-            // Restart visited property
-            let environment = Environment()
-            
-            let source = environment.beacons!.first(where: { (beacon) -> Bool in
-                origin!.name == beacon.name
-            })
-            
-            let dest = environment.beacons!.first(where: { (beacon) -> Bool in
-                destination.beacon.name == beacon.name
-            })
-            
-            if let path = environment.shortestPath(source: source!, destination: dest!) {
-                print("Rota:")
-                for beacon in (environment.history(from: path))! {
-                    print("\(beacon.name)")
-                }
-                print("distância: \(path.cumulativeWeight)")
-                
-            }
             
             dismiss(animated: true, completion: nil)
         }
