@@ -19,7 +19,9 @@ class RootViewController: UITableViewController, CBCentralManagerDelegate, Locat
     var beaconDest : Destination? {
         didSet {
             if (beaconDest != nil) {
+                print("StartRouterTo: \(String(describing: beaconDest?.beacon.name))")
                 self.locationTracker.startRouterTo(beacon: (beaconDest?.beacon)!)
+                self.tableView.reloadData()
             }
         }
     }
@@ -84,12 +86,15 @@ class RootViewController: UITableViewController, CBCentralManagerDelegate, Locat
                 if(bluetoothManager.isScanning){
                     bluetoothManager.stopScan()
                 }
+                self.locationTracker.stopTracking()
             } else {
-                bluetoothManager.scanForPeripherals(
-                    withServices: nil,
-                    options: [CBCentralManagerScanOptionAllowDuplicatesKey : NSNumber(value: true)]);
+                if(!bluetoothManager.isScanning){
+                    bluetoothManager.scanForPeripherals(
+                        withServices: nil,
+                        options: [CBCentralManagerScanOptionAllowDuplicatesKey : NSNumber(value: true)]);
+                    self.locationTracker.startTracking()
+                }
             }
-            //print("Scanning: \(bluetoothManager.isScanning)")
         }
     }
     
@@ -110,6 +115,15 @@ class RootViewController: UITableViewController, CBCentralManagerDelegate, Locat
         for update in updatesPropagation {
             update()
         }
+    }
+    
+    // LocationTrackerEvents
+    func didStartedRouter() {
+        print("didStartedRouter")
+        
+        let utterance = AVSpeechUtterance.init(string: "Rota iniciada, siga em frente")
+        
+        self.synth.speak(utterance)
     }
     
     // LocationTrackerEvents
@@ -178,9 +192,20 @@ class RootViewController: UITableViewController, CBCentralManagerDelegate, Locat
     // UITableViewController
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let beacon = locationTracker.getBeaconsSortedByDistance()[indexPath.item]
+        let beacons = self.locationTracker.hasPath ?
+            self.locationTracker.getBeaconsSortedByDestination() :
+            self.locationTracker.getBeaconsSortedByDistance()
         
-        let identifier = beacon.rssi != 0 ? "tableViewItem" : "tableViewUnupdated"
+        let beacon = beacons[indexPath.item]
+        
+        var identifier = beacon.rssi != 0 ? "tableViewItem" : "tableViewUnupdated"
+        
+        // Changes if is the closest
+        if let closest = self.locationTracker.closest {
+            if (closest.name == beacon.name) {
+                identifier = "tableViewClosest"
+            }
+        }
         
         let tableViewCell = tableView.dequeueReusableCell(withIdentifier: identifier)!
         
